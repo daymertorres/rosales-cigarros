@@ -9,24 +9,25 @@ body {
   background: black;
   color: white;
   height: 100vh;
-  max-width: 390px; /* iPhone width */
+  max-width: 390px;
   margin: auto;
   position: relative;
 }
 
-/* STATUS BAR */
-.status-bar {
+/* APP LAYOUT */
+.app {
   display: flex;
-  justify-content: space-between;
-  padding: 10px 16px;
-  font-size: 14px;
+  flex-direction: column;
+  justify-content: flex-end; /* 🔥 BAJA TODO */
+  height: calc(100vh - 80px); /* espacio para tab bar */
+  padding-bottom: 10px;
 }
 
 /* DISPLAY */
 .display {
   text-align: center;
   font-size: 36px;
-  margin: 20px 0;
+  margin-bottom: 20px;
   min-height: 42px;
 }
 
@@ -41,17 +42,17 @@ body {
 .dialpad button {
   background: #2c2c2e;
   border-radius: 50%;
-  height: 80px;
+  height: 78px;
   color: white;
   font-size: 28px;
   border: none;
-  transition: transform 0.05s ease;
 }
 
 .dialpad button span {
   display: block;
   font-size: 10px;
-  opacity: 0.7;
+  opacity: 0.6;
+  margin-top: 2px;
 }
 
 .dialpad button:active {
@@ -63,43 +64,44 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
-  gap: 30px;
+  margin-top: 18px;
+  gap: 28px;
 }
 
 .call {
   background: #30d158;
-  width: 70px;
-  height: 70px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  font-size: 28px;
+  font-size: 30px;
   border: none;
 }
 
 .delete {
   background: #3a3a3c;
-  width: 50px;
+  width: 52px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
   color: white;
 }
 
 /* TAB BAR */
 .tabbar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 390px;
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
+  padding: 8px 0 14px;
   background: black;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .tabbar div {
   text-align: center;
-  opacity: 0.5;
+  opacity: 0.45;
 }
 
 .tabbar .active {
