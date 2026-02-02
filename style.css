@@ -1,35 +1,39 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", sans-serif;
 }
 
+/* BODY */
 body {
   background: black;
+  color: white;
   height: 100vh;
-  max-width: 375px; /* 🔥 ancho real iPhone */
+  max-width: 375px; /* ancho real iPhone */
   margin: auto;
   position: relative;
+  overflow: hidden;
 }
 
-/* APP LAYOUT */
+/* APP CONTAINER */
 .app {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* 🔥 BAJA TODO */
+  justify-content: flex-end; /* teclado abajo */
   height: calc(100vh - 80px); /* espacio para tab bar */
   padding-bottom: 10px;
 }
 
-/* DISPLAY */
+/* DISPLAY (NUMEROS MARCADOS) */
 .display {
   text-align: center;
   font-size: 36px;
   min-height: 44px;
-  margin-bottom: 32px;   /* más separación del teclado */
-  margin-top: auto;     /* 🔥 empuja hacia arriba */
-  padding-top: 20px;
+  margin-top: auto;       /* empuja hacia arriba */
+  margin-bottom: 32px;    /* separación iOS real */
+  letter-spacing: 4px;
 }
 
 /* DIAL PAD */
@@ -37,40 +41,48 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
-  padding: 0 44px; /* 🔥 menos ancho visual */
+  padding: 0 44px; /* aire lateral iOS */
 }
 
+/* BOTONES */
 .dialpad button {
   background: #2c2c2e;
   border-radius: 50%;
-  width: 72px;      /* 🔥 tamaño real iOS */
+  width: 72px;
   height: 72px;
   color: white;
   font-size: 28px;
   border: none;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+/* LETRAS */
 .dialpad button span {
-  display: block;
   font-size: 10px;
   opacity: 0.6;
   margin-top: 2px;
+  letter-spacing: 1px;
 }
 
+/* ANIMACION TAP */
 .dialpad button:active {
   transform: scale(0.92);
 }
 
-/* ACTIONS */
-.actions {
-  display: flex;
-  justify-content: center;
+/* FILA DE ACCIONES (📞 y ⌫) */
+.actions-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 44px;
+  margin-top: 22px;
   align-items: center;
-  margin-top: 22px; /* ajuste fino */
-  gap: 28px;
 }
 
+/* BOTON LLAMAR */
 .call {
   background: #30d158;
   width: 72px;
@@ -78,15 +90,24 @@ body {
   border-radius: 50%;
   font-size: 30px;
   border: none;
+  margin: auto;
 }
 
+/* BOTON BORRAR */
 .delete {
   background: #3a3a3c;
-  width: 52px;
-  height: 40px;
-  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   border: none;
   color: white;
+  font-size: 18px;
+  margin-left: auto;
+}
+
+/* OCULTO */
+.hidden {
+  display: none;
 }
 
 /* TAB BAR */
@@ -94,7 +115,7 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  max-width: 390px;
+  max-width: 375px;
   display: flex;
   justify-content: space-around;
   padding: 8px 0 14px;
@@ -107,38 +128,54 @@ body {
   opacity: 0.45;
 }
 
+.tabbar div span {
+  display: block;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
 .tabbar .active {
   color: #0a84ff;
   opacity: 1;
 }
 
-/* INFO SCREEN */
+/* INFO SCREEN (*#06#) */
 .info-screen {
   position: fixed;
   inset: 0;
   background: #1c1c1e;
-  display: none;
   padding: 20px;
+  display: none;
   overflow-y: auto;
+  z-index: 999;
 }
 
 .info-screen h1 {
   text-align: center;
   margin: 20px 0;
+  font-size: 22px;
 }
 
 .info-block {
-  margin: 20px 0;
+  margin: 24px 0;
   text-align: center;
+}
+
+.info-block p {
+  color: #8e8e93;
+  font-size: 13px;
 }
 
 .info-block span {
   display: block;
   margin: 10px 0;
+  font-size: 15px;
+  word-break: break-all;
 }
 
 .barcode {
   height: 60px;
+  margin-top: 10px;
   background: repeating-linear-gradient(
     90deg,
     white,
@@ -148,6 +185,7 @@ body {
   );
 }
 
+/* BOTON CANCELAR */
 #closeInfo {
   background: none;
   border: none;
