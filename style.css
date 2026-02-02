@@ -21,9 +21,9 @@ body {
 .app {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* teclado abajo */
-  height: calc(100vh - 80px); /* espacio para tab bar */
-  padding-bottom: 10px;
+  justify-content: flex-end;
+  height: calc(100vh - 80px);
+  padding-bottom: 26px; /* 🔥 SUBE EL TECLADO */
 }
 
 /* DISPLAY (NUMEROS MARCADOS) */
@@ -31,8 +31,12 @@ body {
   text-align: center;
   font-size: 36px;
   min-height: 44px;
-  margin-top: auto;       /* empuja hacia arriba */
-  margin-bottom: 18px;    /* separación iOS real */
+
+  /* 🔥 CLAVE */
+  position: relative;
+  top: -24px;            /* sube el número */
+  
+  margin-bottom: 16px;
   letter-spacing: 4px;
 }
 
@@ -78,7 +82,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 0 44px;
-  margin-top: 16px;
+  margin-top: 14px;
   align-items: center;
 }
 
