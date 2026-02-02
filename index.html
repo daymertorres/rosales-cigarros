@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Phone">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>Phone</title>
+</head>
+<body>
+
+<div id="app">
+  <div class="display" id="display"></div>
+
+  <div class="keypad">
+    <button>*</button><button>0</button><button>#</button>
+    <button>1</button><button>2</button><button>3</button>
+    <button>4</button><button>5</button><button>6</button>
+    <button>7</button><button>8</button><button>9</button>
+  </div>
+
+  <button class="call">Llamar</button>
+</div>
+
+<!-- PANTALLA IMEI -->
+<div id="info-screen" class="hidden">
+  <div class="info-header">
+    <span onclick="closeInfo()">Cancelar</span>
+  </div>
+
+  <h1>Información</h1>
+
+  <div class="info-block">
+    <p>EID</p>
+    <span>89049032007008882600095595791063</span>
+    <div class="barcode"></div>
+  </div>
+
+  <div class="info-block">
+    <p>IMEI</p>
+    <span>359984982886196</span>
+    <div class="barcode"></div>
+  </div>
+
+  <div class="info-block">
+    <p>IMEI2</p>
+    <span>359984982499461</span>
+    <div class="barcode"></div>
+  </div>
+
+  <div class="info-block">
+    <p>MEID</p>
+    <span>35998498288619</span>
+    <div class="barcode"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
