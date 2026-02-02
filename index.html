@@ -5,42 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Phone</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
-  <!-- STATUS BAR -->
-  <div class="status-bar">
-    <span id="time">6:05</span>
-    <span>📶 📡 🔋</span>
-  </div>
+  <!-- APP CONTAINER -->
+  <div class="app">
 
-  <!-- DISPLAY -->
-  <div class="display" id="display"></div>
+    <!-- DISPLAY (número marcado) -->
+    <div class="display" id="display"></div>
 
-  <!-- DIAL PAD -->
-  <div class="dialpad">
-    <button data-key="1">1</button>
-    <button data-key="2">2<span>ABC</span></button>
-    <button data-key="3">3<span>DEF</span></button>
+    <!-- DIAL PAD -->
+    <div class="dialpad">
+      <button data-key="1">1</button>
+      <button data-key="2">2<span>ABC</span></button>
+      <button data-key="3">3<span>DEF</span></button>
 
-    <button data-key="4">4<span>GHI</span></button>
-    <button data-key="5">5<span>JKL</span></button>
-    <button data-key="6">6<span>MNO</span></button>
+      <button data-key="4">4<span>GHI</span></button>
+      <button data-key="5">5<span>JKL</span></button>
+      <button data-key="6">6<span>MNO</span></button>
 
-    <button data-key="7">7<span>PQRS</span></button>
-    <button data-key="8">8<span>TUV</span></button>
-    <button data-key="9">9<span>WXYZ</span></button>
+      <button data-key="7">7<span>PQRS</span></button>
+      <button data-key="8">8<span>TUV</span></button>
+      <button data-key="9">9<span>WXYZ</span></button>
 
-    <button data-key="*">*</button>
-    <button data-key="0">0<span>+</span></button>
-    <button data-key="#">#</button>
-  </div>
+      <button data-key="*">*</button>
+      <button data-key="0">0<span>+</span></button>
+      <button data-key="#">#</button>
+    </div>
 
-  <!-- ACTIONS -->
-  <div class="actions">
-    <button class="call">📞</button>
-    <button class="delete" id="delete">⌫</button>
+    <!-- ACTIONS -->
+    <div class="actions">
+      <button class="call">📞</button>
+      <button class="delete" id="delete">⌫</button>
+    </div>
+
   </div>
 
   <!-- TAB BAR -->
@@ -52,7 +50,7 @@
     <div>📮<span>Buzón</span></div>
   </div>
 
-  <!-- INFO SCREEN (*#06#) -->
+  <!-- INFO SCREEN -->
   <div class="info-screen" id="info">
     <button id="closeInfo">Cancelar</button>
     <h1>Información</h1>
