@@ -1,3 +1,4 @@
+/* BASE */
 body {
   margin: 0;
   background: black;
@@ -5,48 +6,70 @@ body {
   font-family: -apple-system, BlinkMacSystemFont;
 }
 
-#app {
-  padding: 20px;
-}
-
-.display {
-  height: 60px;
-  font-size: 32px;
+/* DISPLAY */
+.number-display {
+  height: 90px;
+  font-size: 36px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  letter-spacing: 2px;
 }
 
-.keypad {
+/* KEYPAD */
+.dial-pad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 18px;
+  padding: 20px;
 }
 
-.keypad button {
-  background: #1c1c1e;
+.dial-pad button {
+  background: #2c2c2e;
+  border: none;
+  border-radius: 50%;
+  height: 80px;
+  font-size: 30px;
   color: white;
-  font-size: 24px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.05s;
+}
+
+.dial-pad button span {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.dial-pad button:active {
+  transform: scale(0.92);
+  background: #3a3a3c;
+}
+
+/* CALL BUTTON */
+.call-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.call-button {
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   border: none;
-}
-
-.call {
-  margin-top: 20px;
-  width: 100%;
-  padding: 15px;
-  border-radius: 30px;
   background: #34c759;
-  font-size: 20px;
-  border: none;
+  font-size: 28px;
 }
 
 /* INFO SCREEN */
-#info-screen {
+.info-screen {
   position: fixed;
   inset: 0;
   background: #1c1c1e;
   padding: 20px;
+  z-index: 999;
   overflow-y: auto;
 }
 
@@ -56,6 +79,7 @@ body {
 
 .info-header span {
   color: #0a84ff;
+  font-size: 17px;
 }
 
 h1 {
@@ -68,7 +92,7 @@ h1 {
 }
 
 .info-block p {
-  color: #aaa;
+  color: #8e8e93;
   margin-bottom: 5px;
 }
 
@@ -81,5 +105,4 @@ h1 {
     #fff 2px,
     #fff 4px
   );
-  margin-top: 10px;
 }
