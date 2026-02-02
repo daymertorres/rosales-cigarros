@@ -1,63 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- PWA / iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Phone">
+
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
   <title>Phone</title>
 </head>
+
 <body>
 
-<div id="app">
-  <div class="display" id="display"></div>
+  <!-- DISPLAY -->
+  <div class="number-display" id="display"></div>
 
-  <div class="keypad">
-    <button>*</button><button>0</button><button>#</button>
-    <button>1</button><button>2</button><button>3</button>
-    <button>4</button><button>5</button><button>6</button>
-    <button>7</button><button>8</button><button>9</button>
+  <!-- KEYPAD -->
+  <div class="dial-pad">
+    <button data-value="1">1</button>
+    <button data-value="2">2<span>ABC</span></button>
+    <button data-value="3">3<span>DEF</span></button>
+
+    <button data-value="4">4<span>GHI</span></button>
+    <button data-value="5">5<span>JKL</span></button>
+    <button data-value="6">6<span>MNO</span></button>
+
+    <button data-value="7">7<span>PQRS</span></button>
+    <button data-value="8">8<span>TUV</span></button>
+    <button data-value="9">9<span>WXYZ</span></button>
+
+    <button data-value="*">*</button>
+    <button data-value="0">0<span>+</span></button>
+    <button data-value="#">#</button>
   </div>
 
-  <button class="call">Llamar</button>
-</div>
-
-<!-- PANTALLA IMEI -->
-<div id="info-screen" class="hidden">
-  <div class="info-header">
-    <span onclick="closeInfo()">Cancelar</span>
+  <!-- CALL -->
+  <div class="call-wrapper">
+    <button class="call-button" id="callBtn">📞</button>
   </div>
 
-  <h1>Información</h1>
+  <!-- INFO SCREEN (*#06#) -->
+  <div id="infoScreen" class="info-screen hidden">
+    <div class="info-header">
+      <span onclick="closeInfo()">Cancelar</span>
+    </div>
 
-  <div class="info-block">
-    <p>EID</p>
-    <span>89049032007008882600095595791063</span>
-    <div class="barcode"></div>
+    <h1>Información</h1>
+
+    <div class="info-block">
+      <p>EID</p>
+      <span>89049032007008882600095595791063</span>
+      <div class="barcode"></div>
+    </div>
+
+    <div class="info-block">
+      <p>IMEI</p>
+      <span>359984982886196</span>
+      <div class="barcode"></div>
+    </div>
+
+    <div class="info-block">
+      <p>IMEI2</p>
+      <span>359984982499461</span>
+      <div class="barcode"></div>
+    </div>
+
+    <div class="info-block">
+      <p>MEID</p>
+      <span>35998498288619</span>
+      <div class="barcode"></div>
+    </div>
   </div>
 
-  <div class="info-block">
-    <p>IMEI</p>
-    <span>359984982886196</span>
-    <div class="barcode"></div>
-  </div>
-
-  <div class="info-block">
-    <p>IMEI2</p>
-    <span>359984982499461</span>
-    <div class="barcode"></div>
-  </div>
-
-  <div class="info-block">
-    <p>MEID</p>
-    <span>35998498288619</span>
-    <div class="barcode"></div>
-  </div>
-</div>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
