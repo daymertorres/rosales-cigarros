@@ -26,25 +26,29 @@ body {
 .display {
   text-align: center;
   font-size: 36px;
-  margin-bottom: 20px;
-  min-height: 42px;
+  min-height: 44px;
+  margin-bottom: 32px;   /* más separación del teclado */
+  margin-top: auto;     /* 🔥 empuja hacia arriba */
+  padding-top: 20px;
 }
 
 /* DIAL PAD */
 .dialpad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding: 0 30px;
+  gap: 18px;
+  padding: 0 44px; /* 🔥 menos ancho visual */
 }
 
 .dialpad button {
   background: #2c2c2e;
   border-radius: 50%;
-  height: 78px;
+  width: 72px;      /* 🔥 tamaño real iOS */
+  height: 72px;
   color: white;
   font-size: 28px;
   border: none;
+  margin: auto;
 }
 
 .dialpad button span {
@@ -63,7 +67,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 18px;
+  margin-top: 22px; /* ajuste fino */
   gap: 28px;
 }
 
