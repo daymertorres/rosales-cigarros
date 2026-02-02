@@ -1,17 +1,25 @@
-let display = document.getElementById("display");
-let info = document.getElementById("info-screen");
+const display = document.getElementById("display");
+const infoScreen = document.getElementById("infoScreen");
+const callBtn = document.getElementById("callBtn");
 
-document.querySelectorAll(".keypad button").forEach(btn => {
-  btn.onclick = () => display.textContent += btn.textContent;
+// Teclas
+document.querySelectorAll(".dial-pad button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const value = btn.dataset.value;
+    display.textContent += value;
+    navigator.vibrate?.(10);
+  });
 });
 
-document.querySelector(".call").onclick = () => {
+// Llamar
+callBtn.addEventListener("click", () => {
   if (display.textContent === "*#06#") {
-    info.classList.remove("hidden");
+    infoScreen.classList.remove("hidden");
     display.textContent = "";
   }
-};
+});
 
+// Cerrar info
 function closeInfo() {
-  info.classList.add("hidden");
+  infoScreen.classList.add("hidden");
 }
