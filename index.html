@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-  <!-- PWA / iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Phone">
-
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Phone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
 </head>
-
 <body>
 
-  <!-- DISPLAY -->
-  <div class="number-display" id="display"></div>
-
-  <!-- KEYPAD -->
-  <div class="dial-pad">
-    <button data-value="1">1</button>
-    <button data-value="2">2<span>ABC</span></button>
-    <button data-value="3">3<span>DEF</span></button>
-
-    <button data-value="4">4<span>GHI</span></button>
-    <button data-value="5">5<span>JKL</span></button>
-    <button data-value="6">6<span>MNO</span></button>
-
-    <button data-value="7">7<span>PQRS</span></button>
-    <button data-value="8">8<span>TUV</span></button>
-    <button data-value="9">9<span>WXYZ</span></button>
-
-    <button data-value="*">*</button>
-    <button data-value="0">0<span>+</span></button>
-    <button data-value="#">#</button>
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <span id="time">6:05</span>
+    <span>📶 📡 🔋</span>
   </div>
 
-  <!-- CALL -->
-  <div class="call-wrapper">
-    <button class="call-button" id="callBtn">📞</button>
+  <!-- DISPLAY -->
+  <div class="display" id="display"></div>
+
+  <!-- DIAL PAD -->
+  <div class="dialpad">
+    <button data-key="1">1</button>
+    <button data-key="2">2<span>ABC</span></button>
+    <button data-key="3">3<span>DEF</span></button>
+
+    <button data-key="4">4<span>GHI</span></button>
+    <button data-key="5">5<span>JKL</span></button>
+    <button data-key="6">6<span>MNO</span></button>
+
+    <button data-key="7">7<span>PQRS</span></button>
+    <button data-key="8">8<span>TUV</span></button>
+    <button data-key="9">9<span>WXYZ</span></button>
+
+    <button data-key="*">*</button>
+    <button data-key="0">0<span>+</span></button>
+    <button data-key="#">#</button>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <button class="call">📞</button>
+    <button class="delete" id="delete">⌫</button>
+  </div>
+
+  <!-- TAB BAR -->
+  <div class="tabbar">
+    <div>⭐<span>Favoritos</span></div>
+    <div>🕒<span>Recientes</span></div>
+    <div>👤<span>Contactos</span></div>
+    <div class="active">🔢<span>Teclado</span></div>
+    <div>📮<span>Buzón</span></div>
   </div>
 
   <!-- INFO SCREEN (*#06#) -->
-  <div id="infoScreen" class="info-screen hidden">
-    <div class="info-header">
-      <span onclick="closeInfo()">Cancelar</span>
-    </div>
-
+  <div class="info-screen" id="info">
+    <button id="closeInfo">Cancelar</button>
     <h1>Información</h1>
 
     <div class="info-block">
@@ -76,6 +82,6 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
