@@ -1,57 +1,26 @@
-const display = document.getElementById("display");
-const keys = document.querySelectorAll("[data-key]");
-const deleteBtn = document.getElementById("deleteBtn");
-const callBtn = document.getElementById("callBtn");
-const info = document.getElementById("info");
-const closeInfo = document.getElementById("closeInfo");
+const number = document.getElementById("number");
+const deleteBtn = document.getElementById("delete");
 
-let value = "";
-
-function updateDisplay() {
-  display.textContent = value;
-  deleteBtn.classList.toggle("hidden", value.length === 0);
-  display.style.transform = value.length ? "translateY(-8px)" : "translateY(0)";
-}
-
-keys.forEach(btn => {
+document.querySelectorAll(".dialer button").forEach(btn => {
   btn.addEventListener("click", () => {
-    value += btn.dataset.key;
-    updateDisplay();
+    const value = btn.textContent.trim();
+    if (value === "⌫") return;
+    if (btn.classList.contains("call")) return;
 
-    if (value === "*#06#") {
-      setTimeout(() => {
-        info.style.display = "block";
-      }, 250);
-    }
+    number.textContent += value;
+    deleteBtn.style.display = "block";
   });
 });
 
 deleteBtn.addEventListener("click", () => {
-  value = value.slice(0, -1);
-  updateDisplay();
+  number.textContent = number.textContent.slice(0, -1);
+  if (!number.textContent) deleteBtn.style.display = "none";
 });
 
-callBtn.addEventListener("click", () => {
-  value = "";
-  updateDisplay();
-});
-
-closeInfo.addEventListener("click", () => {
-  info.style.display = "none";
-  value = "";
-  updateDisplay();
-});
-
-/* 🔥 BLOQUEO DOBLE TAP ZOOM (iOS) */
+/* ❌ PREVENIR ZOOM DOBLE TAP iOS */
 let lastTouchEnd = 0;
-document.addEventListener(
-  "touchend",
-  function (event) {
-    const now = new Date().getTime();
-    if (now - lastTouchEnd <= 300) {
-      event.preventDefault();
-    }
-    lastTouchEnd = now;
-  },
-  { passive: false }
-);
+document.addEventListener("touchend", e => {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) e.preventDefault();
+  lastTouchEnd = now;
+}, { passive: false });
