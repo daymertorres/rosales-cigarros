@@ -7,19 +7,17 @@ const closeInfo = document.getElementById("closeInfo");
 
 let value = "";
 
-// Mostrar siempre el número escrito
 function updateDisplay() {
   display.textContent = value;
   deleteBtn.classList.toggle("hidden", value.length === 0);
+  display.style.transform = value.length ? "translateY(-8px)" : "translateY(0)";
 }
 
-// Teclas
 keys.forEach(btn => {
   btn.addEventListener("click", () => {
     value += btn.dataset.key;
     updateDisplay();
 
-    // Código secreto iOS
     if (value === "*#06#") {
       setTimeout(() => {
         info.style.display = "block";
@@ -28,22 +26,32 @@ keys.forEach(btn => {
   });
 });
 
-// Borrar carácter
 deleteBtn.addEventListener("click", () => {
   value = value.slice(0, -1);
   updateDisplay();
 });
 
-// Botón llamar (solo simula)
 callBtn.addEventListener("click", () => {
-  if (value === "*#06#") return;
   value = "";
   updateDisplay();
 });
 
-// Cerrar info
 closeInfo.addEventListener("click", () => {
   info.style.display = "none";
   value = "";
   updateDisplay();
 });
+
+/* 🔥 BLOQUEO DOBLE TAP ZOOM (iOS) */
+let lastTouchEnd = 0;
+document.addEventListener(
+  "touchend",
+  function (event) {
+    const now = new Date().getTime();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  },
+  { passive: false }
+);
