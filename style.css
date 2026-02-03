@@ -1,116 +1,67 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* PREVENIR ZOOM */
 html, body {
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  height: 100%;
   touch-action: manipulation;
-}
-
-/* BODY */
-body {
-  background: black;
-  color: white;
-  height: 100vh;
-  max-width: 375px;
-  margin: auto;
-  overflow: hidden;
-}
-
-/* APP */
-.app {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: calc(100vh - 80px);
-  padding-bottom: 26px; /* teclado un poco más arriba */
 }
 
 /* DISPLAY */
 .display {
-  text-align: center;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   font-size: 36px;
-  min-height: 44px;
-  margin-top: auto;
-  margin-bottom: 16px;
-  letter-spacing: 4px;
-  position: relative;
-  top: -24px; /* números más arriba */
+  letter-spacing: 2px;
+  padding-bottom: 10px;
 }
 
-/* DIAL PAD */
-.dialpad {
+/* DIALER */
+.dialer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
-  padding: 0 44px;
+  padding: 10px 28px 0;
 }
 
-/* BOTONES */
-.dialpad button {
+.dialer button {
   background: #2c2c2e;
+  border: none;
   border-radius: 50%;
-  width: 78px;
-  height: 78px;
+  width: 72px;
+  height: 72px;
   color: white;
   font-size: 30px;
-  border: none;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
-.dialpad button span {
+.dialer button span {
+  display: block;
   font-size: 10px;
-  opacity: 0.6;
-  margin-top: 2px;
-  letter-spacing: 1px;
+  margin-top: -4px;
+  color: #b0b0b5;
 }
 
-.dialpad button:active {
-  transform: scale(0.92);
-}
-
-/* ACTION ROW */
-.actions-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 0 44px;
-  margin-top: 14px;
-  align-items: center;
-}
-
-/* CALL */
+/* LLAMAR */
 .call {
-  background: #30d158;
-  width: 78px;
-  height: 78px;
-  border-radius: 50%;
-  border: none;
-  font-size: 28px;
-  margin: auto;
+  background: #34c759 !important;
+  font-size: 26px;
 }
 
-/* DELETE */
+/* BORRAR */
 .delete {
+  display: none;
   background: #3a3a3c;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: none;
-  color: white;
   font-size: 18px;
   margin: auto;
-}
-
-.hidden {
-  display: none;
 }
 
 /* TAB BAR */
@@ -118,75 +69,25 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  max-width: 375px;
   display: flex;
   justify-content: space-around;
   padding: 8px 0 14px;
-  background: black;
+  background: #000;
+  border-top: 1px solid #1c1c1e;
+}
+
+.tab {
+  text-align: center;
+  color: #8e8e93;
   font-size: 11px;
 }
 
-.tabbar div {
-  text-align: center;
-  opacity: 0.45;
-}
-
-.tabbar i {
+.tab i {
   font-size: 22px;
   display: block;
   margin-bottom: 4px;
 }
 
-.tabbar .active {
+.tab.active {
   color: #0a84ff;
-  opacity: 1;
-}
-
-/* INFO SCREEN */
-.info-screen {
-  position: fixed;
-  inset: 0;
-  background: #1c1c1e;
-  padding: 20px;
-  display: none;
-  z-index: 999;
-}
-
-.info-screen h1 {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.info-block {
-  margin: 24px 0;
-  text-align: center;
-}
-
-.info-block p {
-  color: #8e8e93;
-  font-size: 13px;
-}
-
-.info-block span {
-  display: block;
-  margin: 10px 0;
-  word-break: break-all;
-}
-
-.barcode {
-  height: 60px;
-  background: repeating-linear-gradient(
-    90deg,
-    white,
-    white 2px,
-    black 2px,
-    black 4px
-  );
-}
-
-#closeInfo {
-  background: none;
-  border: none;
-  color: #0a84ff;
-  font-size: 16px;
 }
