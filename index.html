@@ -1,105 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- PWA iOS -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Teléfono">
-
-<!-- ICONO PARA iOS -->
-<link rel="apple-touch-icon" href="icon.png">
   <meta charset="UTF-8" />
 
-  <!-- 🔥 DESACTIVAR ZOOM -->
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  />
+  <!-- VIEWPORT + ZOOM OFF -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-  <title>Phone</title>
+  <!-- PWA iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Teléfono">
+  <link rel="apple-touch-icon" href="icon.png">
 
-  <!-- ICONOS (OPCIÓN 1) -->
+  <title>Teléfono</title>
+
+  <!-- ICONOS -->
   <script src="https://unpkg.com/phosphor-icons"></script>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- APP -->
-  <div class="app">
+  <!-- DISPLAY NÚMEROS -->
+  <div class="display">
+    <span id="number"></span>
+  </div>
 
-    <!-- DISPLAY -->
-    <div class="display" id="display"></div>
+  <!-- TECLADO -->
+  <div class="dialer">
+    <button>1</button>
+    <button>2<span>ABC</span></button>
+    <button>3<span>DEF</span></button>
 
-    <!-- DIAL PAD -->
-    <div class="dialpad">
-      <button data-key="1">1</button>
-      <button data-key="2">2<span>ABC</span></button>
-      <button data-key="3">3<span>DEF</span></button>
+    <button>4<span>GHI</span></button>
+    <button>5<span>JKL</span></button>
+    <button>6<span>MNO</span></button>
 
-      <button data-key="4">4<span>GHI</span></button>
-      <button data-key="5">5<span>JKL</span></button>
-      <button data-key="6">6<span>MNO</span></button>
+    <button>7<span>PQRS</span></button>
+    <button>8<span>TUV</span></button>
+    <button>9<span>WXYZ</span></button>
 
-      <button data-key="7">7<span>PQRS</span></button>
-      <button data-key="8">8<span>TUV</span></button>
-      <button data-key="9">9<span>WXYZ</span></button>
+    <button>*</button>
+    <button>0<span>+</span></button>
+    <button>#</button>
 
-      <button data-key="*">*</button>
-      <button data-key="0">0<span>+</span></button>
-      <button data-key="#">#</button>
-    </div>
+    <div></div>
 
-    <!-- ACTION ROW -->
-    <div class="actions-row">
-      <div></div>
-      <button class="call" id="callBtn">
-        <i class="ph-phone-fill"></i>
-      </button>
-      <button class="delete hidden" id="deleteBtn">⌫</button>
-    </div>
+    <!-- LLAMAR -->
+    <button class="call">
+      <i class="ph-phone-fill"></i>
+    </button>
 
+    <!-- BORRAR -->
+    <button class="delete" id="delete">⌫</button>
   </div>
 
   <!-- TAB BAR -->
   <div class="tabbar">
-    <div>
+    <div class="tab">
       <i class="ph-star"></i>
       <span>Favoritos</span>
     </div>
-    <div>
+    <div class="tab">
       <i class="ph-clock"></i>
       <span>Recientes</span>
     </div>
-    <div>
+    <div class="tab">
       <i class="ph-user"></i>
       <span>Contactos</span>
     </div>
-    <div class="active">
+    <div class="tab active">
       <i class="ph-dial-pad"></i>
       <span>Teclado</span>
     </div>
-    <div>
+    <div class="tab">
       <i class="ph-voicemail"></i>
       <span>Buzón</span>
-    </div>
-  </div>
-
-  <!-- INFO SCREEN (*#06#) -->
-  <div class="info-screen" id="info">
-    <button id="closeInfo">Cancelar</button>
-    <h1>Información</h1>
-
-    <div class="info-block">
-      <p>IMEI</p>
-      <span>359984982886196</span>
-      <div class="barcode"></div>
-    </div>
-
-    <div class="info-block">
-      <p>IMEI2</p>
-      <span>359984982499461</span>
-      <div class="barcode"></div>
     </div>
   </div>
 
