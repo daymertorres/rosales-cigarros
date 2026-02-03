@@ -6,38 +6,40 @@
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", sans-serif;
 }
 
+/* PREVENIR ZOOM */
+html, body {
+  touch-action: manipulation;
+}
+
 /* BODY */
 body {
   background: black;
   color: white;
   height: 100vh;
-  max-width: 375px; /* ancho real iPhone */
+  max-width: 375px;
   margin: auto;
-  position: relative;
   overflow: hidden;
 }
 
-/* APP CONTAINER */
+/* APP */
 .app {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   height: calc(100vh - 80px);
-  padding-bottom: 26px; /* 🔥 SUBE EL TECLADO */
+  padding-bottom: 26px; /* teclado un poco más arriba */
 }
 
-/* DISPLAY (NUMEROS MARCADOS) */
+/* DISPLAY */
 .display {
   text-align: center;
   font-size: 36px;
   min-height: 44px;
-
-  /* 🔥 CLAVE */
-  position: relative;
-  top: -24px;            /* sube el número */
-  
+  margin-top: auto;
   margin-bottom: 16px;
   letter-spacing: 4px;
+  position: relative;
+  top: -24px; /* números más arriba */
 }
 
 /* DIAL PAD */
@@ -45,7 +47,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
-  padding: 0 44px; /* aire lateral iOS */
+  padding: 0 44px;
 }
 
 /* BOTONES */
@@ -64,7 +66,6 @@ body {
   align-items: center;
 }
 
-/* LETRAS */
 .dialpad button span {
   font-size: 10px;
   opacity: 0.6;
@@ -72,12 +73,11 @@ body {
   letter-spacing: 1px;
 }
 
-/* ANIMACION TAP */
 .dialpad button:active {
   transform: scale(0.92);
 }
 
-/* FILA DE ACCIONES (📞 y ⌫) */
+/* ACTION ROW */
 .actions-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -86,18 +86,18 @@ body {
   align-items: center;
 }
 
-/* BOTON LLAMAR */
+/* CALL */
 .call {
   background: #30d158;
   width: 78px;
   height: 78px;
   border-radius: 50%;
-  font-size: 32px;
   border: none;
+  font-size: 28px;
   margin: auto;
 }
 
-/* BOTON BORRAR */
+/* DELETE */
 .delete {
   background: #3a3a3c;
   width: 44px;
@@ -109,7 +109,6 @@ body {
   margin: auto;
 }
 
-/* OCULTO */
 .hidden {
   display: none;
 }
@@ -132,10 +131,10 @@ body {
   opacity: 0.45;
 }
 
-.tabbar div span {
+.tabbar i {
+  font-size: 22px;
   display: block;
-  font-size: 10px;
-  margin-top: 2px;
+  margin-bottom: 4px;
 }
 
 .tabbar .active {
@@ -143,21 +142,19 @@ body {
   opacity: 1;
 }
 
-/* INFO SCREEN (*#06#) */
+/* INFO SCREEN */
 .info-screen {
   position: fixed;
   inset: 0;
   background: #1c1c1e;
   padding: 20px;
   display: none;
-  overflow-y: auto;
   z-index: 999;
 }
 
 .info-screen h1 {
   text-align: center;
   margin: 20px 0;
-  font-size: 22px;
 }
 
 .info-block {
@@ -173,13 +170,11 @@ body {
 .info-block span {
   display: block;
   margin: 10px 0;
-  font-size: 15px;
   word-break: break-all;
 }
 
 .barcode {
   height: 60px;
-  margin-top: 10px;
   background: repeating-linear-gradient(
     90deg,
     white,
@@ -189,7 +184,6 @@ body {
   );
 }
 
-/* BOTON CANCELAR */
 #closeInfo {
   background: none;
   border: none;
