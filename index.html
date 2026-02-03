@@ -1,83 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-
-  <!-- VIEWPORT + ZOOM OFF -->
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-  <!-- PWA iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Teléfono">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <title>Teléfono</title>
-
-  <!-- ICONOS -->
-  <script src="https://unpkg.com/phosphor-icons"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phone Dialer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- DISPLAY NÚMEROS -->
-  <div class="display">
-    <span id="number"></span>
-  </div>
+  <div class="app">
 
-  <!-- TECLADO -->
-  <div class="dialer">
-    <button>1</button>
-    <button>2<span>ABC</span></button>
-    <button>3<span>DEF</span></button>
+    <!-- DISPLAY -->
+    <div class="display" id="display"></div>
 
-    <button>4<span>GHI</span></button>
-    <button>5<span>JKL</span></button>
-    <button>6<span>MNO</span></button>
+    <!-- TECLADO -->
+    <div class="keypad">
+      <button>1</button>
+      <button>2<span>ABC</span></button>
+      <button>3<span>DEF</span></button>
 
-    <button>7<span>PQRS</span></button>
-    <button>8<span>TUV</span></button>
-    <button>9<span>WXYZ</span></button>
+      <button>4<span>GHI</span></button>
+      <button>5<span>JKL</span></button>
+      <button>6<span>MNO</span></button>
 
-    <button>*</button>
-    <button>0<span>+</span></button>
-    <button>#</button>
+      <button>7<span>PQRS</span></button>
+      <button>8<span>TUV</span></button>
+      <button>9<span>WXYZ</span></button>
 
-    <div></div>
-
-    <!-- LLAMAR -->
-    <button class="call">
-      <i class="ph-phone-fill"></i>
-    </button>
-
-    <!-- BORRAR -->
-    <button class="delete" id="delete">⌫</button>
-  </div>
-
-  <!-- TAB BAR -->
-  <div class="tabbar">
-    <div class="tab">
-      <i class="ph-star"></i>
-      <span>Favoritos</span>
+      <button>*</button>
+      <button>0<span>+</span></button>
+      <button>#</button>
     </div>
-    <div class="tab">
-      <i class="ph-clock"></i>
-      <span>Recientes</span>
+
+    <!-- ACCIONES -->
+    <div class="actions-row">
+      <div></div>
+
+      <button class="call">
+        📞
+      </button>
+
+      <button class="delete" id="delete">
+        ⌫
+      </button>
     </div>
-    <div class="tab">
-      <i class="ph-user"></i>
-      <span>Contactos</span>
-    </div>
-    <div class="tab active">
-      <i class="ph-dial-pad"></i>
-      <span>Teclado</span>
-    </div>
-    <div class="tab">
-      <i class="ph-voicemail"></i>
-      <span>Buzón</span>
-    </div>
+
   </div>
 
   <script src="app.js"></script>
